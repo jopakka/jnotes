@@ -1,4 +1,4 @@
-package joonas.niemi.jnotes.ui.theme
+package joonas.niemi.jnotes.core.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -20,6 +20,9 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "JNotes"
 include(":app")
 include(":core:data")
+include(":core:model")
+include(":core:designsystem")

@@ -3,9 +3,8 @@ plugins {
 }
 
 android {
-    namespace = "joonas.niemi.jnotes.core.data"
+    namespace = "joonas.niemi.jnotes.core.model"
 }
 
 dependencies {
-    implementation(projects.core.model)
 }
