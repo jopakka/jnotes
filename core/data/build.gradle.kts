@@ -1,9 +1,9 @@
 plugins {
-    alias(libs.plugins.shoppinglist.android.library)
+    alias(libs.plugins.jnotes.android.library)
 }
 
 android {
-    namespace = "joonas.niemi.shoppinglist.core.data"
+    namespace = "joonas.niemi.jnotes.core.data"
 }
 
 dependencies {

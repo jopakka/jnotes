@@ -1,4 +1,4 @@
-package joonas.niemi.shoppinglist.ui.theme
+package joonas.niemi.jnotes.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

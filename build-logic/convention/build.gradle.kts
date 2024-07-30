@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "joonas.niemi.shoppinglist.buildlogic"
+group = "joonas.niemi.jnotes.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -33,19 +33,19 @@ tasks {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = "shoppinglist.android.application"
+            id = "jnotes.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidLibrary") {
-            id = "shoppinglist.android.library"
+            id = "jnotes.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("androidApplicationCompose") {
-            id = "shoppinglist.android.application.compose"
+            id = "jnotes.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
         register("androidLibraryCompose") {
-            id = "shoppinglist.android.library.compose"
+            id = "jnotes.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
     }

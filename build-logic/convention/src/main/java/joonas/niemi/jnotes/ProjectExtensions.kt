@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-package joonas.niemi.shoppinglist
+package joonas.niemi.jnotes
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog

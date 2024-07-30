@@ -1,5 +1,5 @@
 import com.android.build.gradle.LibraryExtension
-import joonas.niemi.shoppinglist.configureAndroidCompose
+import joonas.niemi.jnotes.configureAndroidCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply

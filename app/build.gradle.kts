@@ -1,17 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.shoppinglist.android.application)
-    alias(libs.plugins.shoppinglist.android.application.compose)
-//    alias(libs.plugins.jetbrains.kotlin.android)
-//    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.jnotes.android.application)
+    alias(libs.plugins.jnotes.android.application.compose)
 }
 
 android {
-    namespace = "joonas.niemi.shoppinglist"
+    namespace = "joonas.niemi.jnotes"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "joonas.niemi.shoppinglist"
+        applicationId = "joonas.niemi.jnotes"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

@@ -1,5 +1,5 @@
 import com.android.build.gradle.LibraryExtension
-import joonas.niemi.shoppinglist.configureKotlinAndroid
+import joonas.niemi.jnotes.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

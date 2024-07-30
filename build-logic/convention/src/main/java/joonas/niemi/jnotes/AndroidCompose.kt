@@ -1,4 +1,4 @@
-package joonas.niemi.shoppinglist
+package joonas.niemi.jnotes
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project

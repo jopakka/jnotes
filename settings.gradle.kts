@@ -20,6 +20,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Shopping List"
+rootProject.name = "JNotes"
 include(":app")
 include(":core:data")
