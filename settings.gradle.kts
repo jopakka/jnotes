@@ -1,3 +1,10 @@
+// TODO: Can be removed when https://issuetracker.google.com/issues/328871352 is fixed
+gradle.startParameter.excludedTaskNames.addAll(
+    listOf(
+        ":build-logic:convention:testClasses",
+    )
+)
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -26,3 +33,4 @@ include(":app")
 include(":core:data")
 include(":core:model")
 include(":core:designsystem")
+include(":feature:notelist")
