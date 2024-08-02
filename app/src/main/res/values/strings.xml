@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Shopping List</string>
+    <string name="app_name">JNotes</string>
+    <string name="logout_confirm_title">Logout</string>
+    <string name="logout_confirm_text">Are you sure that you want to logout?</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
 </resources>

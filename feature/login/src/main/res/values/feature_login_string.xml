@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_login_login_error_invalid_credentials">Invalid email or password</string>
+    <string name="feature_login_signup_error_user_already_exists">User already exists</string>
+    <string name="feature_login_login_error_unknown">Failed to login</string>
+    <string name="feature_login_login">Log in</string>
+    <string name="feature_login_signup">Sign up</string>
+    <string name="feature_login_email">Email</string>
+    <string name="feature_login_email_placeholder">Enter email</string>
+    <string name="feature_login_password">Password</string>
+    <string name="feature_login_password_placeholder">Enter password</string>
+    <string name="feature_login_confirm_password">Confirm password</string>
+    <string name="feature_login_create_account">Create an account</string>
+    <string name="feature_login_already_have_account">Already have an account</string>
+</resources>

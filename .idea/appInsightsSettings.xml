@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="joonas.niemi.jnotes" />
+                  <option name="mobileSdkAppId" value="1:1005969048739:android:b42572a4f1b0f3524aab16" />
+                  <option name="projectId" value="shopping-list-4c10d" />
+                  <option name="projectNumber" value="1005969048739" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.jnotes.android.library)
     alias(libs.plugins.jnotes.android.hilt)
+    alias(libs.plugins.jnotes.android.library.firebase)
 }
 
 android {

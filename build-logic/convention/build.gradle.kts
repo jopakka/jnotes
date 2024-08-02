@@ -20,6 +20,7 @@ kotlin {
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.firebase.crashlytics.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
 }
@@ -56,6 +57,14 @@ gradlePlugin {
         register("androidFeature") {
             id = "jnotes.android.feature"
             implementationClass = "AndroidFeatureConventionPlugin"
+        }
+        register("androidApplicationFirebase") {
+            id = "jnotes.android.application.firebase"
+            implementationClass = "AndroidApplicationFirebaseConventionPlugin"
+        }
+        register("androidLibraryFirebase") {
+            id = "jnotes.android.library.firebase"
+            implementationClass = "AndroidLibraryFirebaseConventionPlugin"
         }
     }
 }

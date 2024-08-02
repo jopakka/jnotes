@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import dagger.hilt.android.AndroidEntryPoint
 import joonas.niemi.jnotes.core.designsystem.theme.JNotesTheme
-import joonas.niemi.jnotes.ui.JNotesApp
+import joonas.niemi.jnotes.ui.JNotesLogin
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JNotesTheme {
-                JNotesApp()
+                JNotesLogin()
             }
         }
     }
