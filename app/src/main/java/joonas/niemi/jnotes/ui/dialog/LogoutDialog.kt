@@ -18,12 +18,12 @@ fun LogoutDialog(
         onDismissRequest = onDismissRequest,
         confirmButton = {
             TextButton(onClick = onConfirm) {
-                Text(text = stringResource(R.string.confirm))
+                Text(text = stringResource(joonas.niemi.jnotes.core.assets.R.string.core_assets_confirm))
             }
         },
         dismissButton = {
             TextButton(onClick = onDismissRequest) {
-                Text(text = stringResource(R.string.cancel))
+                Text(text = stringResource(joonas.niemi.jnotes.core.assets.R.string.core_assets_cancel))
             }
         },
         title = {

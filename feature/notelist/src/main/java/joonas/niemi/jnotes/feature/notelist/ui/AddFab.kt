@@ -37,7 +37,10 @@ fun AddFab(onAdd: (NoteType) -> Unit) {
 
     Column(horizontalAlignment = Alignment.End) {
         if (isExpanded) {
-            FabList(onAdd = onAdd)
+            FabList(onAdd = {
+                onAdd(it)
+                isExpanded = false
+            })
             Box(modifier = Modifier.height(8.dp))
         }
         FloatingActionButton(

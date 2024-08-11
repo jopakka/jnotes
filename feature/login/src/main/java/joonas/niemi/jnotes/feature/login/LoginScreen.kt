@@ -30,6 +30,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -133,6 +134,16 @@ private fun LoginViewContent(
     var showPassword by remember { mutableStateOf(false) }
     val isLoading = remember(signingState) { signingState is SigningState.Loading }
 
+    val mOnLogin by rememberUpdatedState {
+        if (isLoading) return@rememberUpdatedState
+        onLogin()
+    }
+
+    val mOnToSignup by rememberUpdatedState {
+        if (isLoading) return@rememberUpdatedState
+        onToSignup()
+    }
+
     LoginContainer(modifier) {
         FormContainer {
             FormTitle(
@@ -151,15 +162,20 @@ private fun LoginViewContent(
                 leadingIcon = {
                     Icon(Icons.Default.Email, contentDescription = null)
                 },
+                enabled = !isLoading,
             )
             PasswordField(
                 state = password,
-                onSubmit = { focusManager.clearFocus() },
+                onSubmit = {
+                    focusManager.clearFocus()
+                    mOnLogin()
+                },
                 setShowPassword = { showPassword = it },
                 showPassword = showPassword,
                 modifier = Modifier
                     .fillMaxWidth()
                     .focusRequester(focusRequester),
+                enabled = !isLoading,
             )
 
             if (signingState is SigningState.Error) {
@@ -167,14 +183,18 @@ private fun LoginViewContent(
             }
 
             JButton(
-                onClick = onLogin,
+                onClick = mOnLogin,
                 label = stringResource(R.string.feature_login_login),
                 loading = isLoading,
                 enabled = !isLoading,
             )
         }
 
-        TextButton(onClick = onToSignup, modifier = Modifier.align(Alignment.BottomCenter)) {
+        TextButton(
+            onClick = mOnToSignup,
+            modifier = Modifier.align(Alignment.BottomCenter),
+            enabled = !isLoading,
+        ) {
             Text(text = stringResource(R.string.feature_login_create_account))
         }
     }
@@ -290,6 +310,9 @@ private fun SignupViewContent(
                     .fillMaxWidth()
                     .focusRequester(pwFocusRequester),
                 error = passwordError,
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    imeAction = ImeAction.Next,
+                ),
             )
             PasswordField(
                 state = confirmPassword,
@@ -374,9 +397,11 @@ private fun PasswordField(
     onSubmit: () -> Unit,
     setShowPassword: (Boolean) -> Unit,
     showPassword: Boolean,
+    enabled: Boolean = true,
     error: Boolean = false,
     label: String = stringResource(R.string.feature_login_password),
     placeholder: String = stringResource(R.string.feature_login_password_placeholder),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Send),
 ) {
     JTextField(
         state = state,
@@ -385,7 +410,7 @@ private fun PasswordField(
         label = label,
         placeholder = placeholder,
         onSubmit = onSubmit,
-        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Send),
+        keyboardOptions = keyboardOptions,
         leadingIcon = {
             Icon(Icons.Default.Lock, contentDescription = null)
         },
@@ -411,6 +436,7 @@ private fun PasswordField(
             }
         },
         error = error,
+        enabled = enabled,
     )
 }
 

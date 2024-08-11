@@ -42,6 +42,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -114,59 +115,61 @@ fun JTextField(
         if (label != null) {
             InputLabel(text = label)
         }
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(JTextFieldDefaults.iconSpacing),
-            modifier = textFieldContainerModifier,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            if (leadingIcon != null) {
-                leadingIcon()
-            }
-
-            Box(modifier = Modifier.weight(1f)) {
-                if (showPlaceholder) {
-                    Text(
-                        text = placeholder,
-                        maxLines = maxLines,
-                        style = placeholderTextStyle,
-                    )
+        val decorator: @Composable (@Composable () -> Unit) -> Unit = {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(JTextFieldDefaults.iconSpacing),
+                modifier = textFieldContainerModifier,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (leadingIcon != null) {
+                    leadingIcon()
                 }
-                if (secured) {
-                    BasicSecureTextField(
-                        state = state,
-                        enabled = enabled,
-                        textStyle = textStyle,
-                        onSubmit = {
-                            onSubmit()
-                            true
-                        },
-                        imeAction = keyboardOptions.imeAction,
-                        interactionSource = interactionSource,
-                        modifier = textFieldModifier,
-                        inputTransformation = inputTransformation
-                    )
-                } else {
-                    BasicTextField2(
-                        state = state,
-                        enabled = enabled,
-                        textStyle = textStyle,
-                        lineLimits = lineLimits,
-                        keyboardOptions = keyboardOptions,
-                        keyboardActions = keyboardActions,
-                        interactionSource = interactionSource,
-                        modifier = textFieldModifier,
-                    )
+                JTextFieldDefaults.PlaceholderDecorator(
+                    showPlaceholder = showPlaceholder,
+                    placeholder = placeholder,
+                    maxLines = maxLines,
+                    placeholderTextStyle = placeholderTextStyle,
+                    content = it,
+                    modifier = Modifier.weight(1f),
+                )
+                if (trailingIcon != null) {
+                    trailingIcon()
                 }
             }
+        }
 
-            if (trailingIcon != null) {
-                trailingIcon()
-            }
+        if (secured) {
+            BasicSecureTextField(
+                state = state,
+                enabled = enabled,
+                textStyle = textStyle,
+                onSubmit = {
+                    onSubmit()
+                    true
+                },
+                imeAction = keyboardOptions.imeAction,
+                interactionSource = interactionSource,
+                modifier = textFieldModifier,
+                inputTransformation = inputTransformation,
+                decorator = { decorator(it) },
+            )
+        } else {
+            BasicTextField2(
+                state = state,
+                enabled = enabled,
+                textStyle = textStyle,
+                lineLimits = lineLimits,
+                keyboardOptions = keyboardOptions,
+                keyboardActions = keyboardActions,
+                interactionSource = interactionSource,
+                modifier = textFieldModifier,
+                decorator = { decorator(it) },
+            )
         }
     }
 }
 
-private object JTextFieldDefaults {
+object JTextFieldDefaults {
     val shape: Shape
         @Composable get() = MaterialTheme.shapes.small
 
@@ -183,6 +186,28 @@ private object JTextFieldDefaults {
     val iconSpacing: Dp = 8.dp
     val borderWidth: Dp = 2.dp
     val minHeight: Dp = 56.dp
+
+
+    @Composable
+    fun PlaceholderDecorator(
+        showPlaceholder: Boolean,
+        placeholder: String?,
+        maxLines: Int,
+        placeholderTextStyle: TextStyle,
+        modifier: Modifier = Modifier,
+        content: @Composable () -> Unit = {},
+    ) {
+        Box(modifier) {
+            if (placeholder != null && showPlaceholder) {
+                Text(
+                    text = placeholder,
+                    maxLines = maxLines,
+                    style = placeholderTextStyle,
+                )
+            }
+            content()
+        }
+    }
 }
 
 @OptIn(ExperimentalFoundationApi::class)

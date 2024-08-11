@@ -6,9 +6,9 @@ import androidx.compose.foundation.text2.input.clearText
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import joonas.niemi.jnotes.core.data.user.repository.UserRepository
-import joonas.niemi.jnotes.core.data.user.util.UserAlreadyExists
-import joonas.niemi.jnotes.core.data.user.util.UserNotFound
+import joonas.niemi.jnotes.core.data.repository.UserRepository
+import joonas.niemi.jnotes.core.data.util.UserAlreadyExists
+import joonas.niemi.jnotes.core.data.util.UserNotFound
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

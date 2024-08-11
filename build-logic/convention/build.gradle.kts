@@ -23,6 +23,7 @@ dependencies {
     compileOnly(libs.firebase.crashlytics.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
+    compileOnly(libs.room.gradlePlugin)
 }
 
 tasks {
@@ -65,6 +66,10 @@ gradlePlugin {
         register("androidLibraryFirebase") {
             id = "jnotes.android.library.firebase"
             implementationClass = "AndroidLibraryFirebaseConventionPlugin"
+        }
+        register("androidRoom") {
+            id = "jnotes.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
         }
     }
 }

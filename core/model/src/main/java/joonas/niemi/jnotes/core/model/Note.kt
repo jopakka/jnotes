@@ -1,9 +1,11 @@
 package joonas.niemi.jnotes.core.model
 
-data class Note(
-    val id: String,
-    val title: String,
-    val content: String,
-    val createdAt: Long,
-    val userId: String,
-)
+import kotlinx.datetime.Instant
+
+interface Note {
+    val id: String
+    val title: String
+    val userId: String
+    val type: NoteType
+    val createdAt: Instant
+}

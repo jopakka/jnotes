@@ -30,8 +30,16 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "JNotes"
 include(":app")
+
+include(":core:assets")
+include(":core:common")
 include(":core:data")
-include(":core:model")
+include(":core:database")
 include(":core:designsystem")
-include(":feature:notelist")
+include(":core:domain")
+include(":core:model")
+
 include(":feature:login")
+include(":feature:notelist")
+include(":feature:note")
+include(":core:ui")

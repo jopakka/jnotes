@@ -106,3 +106,6 @@ fun JNotesTheme(
     )
 }
 
+object JNotesTheme {
+    val spacing = Spacing
+}

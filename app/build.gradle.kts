@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "joonas.niemi.jnotes"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
@@ -41,8 +41,14 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.assets)
+    implementation(projects.core.common)
     implementation(projects.core.data)
     implementation(projects.core.designsystem)
+    implementation(projects.core.domain)
+    implementation(projects.core.model)
+    implementation(projects.core.ui)
+    implementation(projects.feature.note)
     implementation(projects.feature.notelist)
     implementation(projects.feature.login)
 
@@ -55,6 +61,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.material3)
+    implementation(libs.kotlinx.datetime)
     implementation(libs.timber)
 
     testImplementation(libs.junit)

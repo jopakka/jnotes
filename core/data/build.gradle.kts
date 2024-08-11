@@ -9,6 +9,10 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.common)
+    implementation(projects.core.database)
     implementation(projects.core.model)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.timber)
 }

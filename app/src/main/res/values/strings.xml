@@ -2,6 +2,6 @@
     <string name="app_name">JNotes</string>
     <string name="logout_confirm_title">Logout</string>
     <string name="logout_confirm_text">Are you sure that you want to logout?</string>
-    <string name="confirm">Confirm</string>
-    <string name="cancel">Cancel</string>
+    <string name="add_title">Add title</string>
+    <string name="edit_title">Edit title</string>
 </resources>
